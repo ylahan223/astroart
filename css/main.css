@@ -28,6 +28,8 @@ button{
 }
 .is-flex{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .is-grid{
     display: grid;
@@ -49,6 +51,7 @@ section.project{
     height: 100%;
     padding-top: 18%;
     box-sizing: border-box;
+
 }
 div.project_inner{
     margin-left: 11%;
@@ -80,11 +83,64 @@ p.project_title{
 section.contact_us{
     width: 100%;
     height: 100%;
-    background-color: black;
     padding-top: 320px;
     box-sizing: border-box;
+    background: url(/astroart/images/contactus_bg.png) no-repeat right center black;
 }
 div.contact_us_inner{
     margin-left: 11%;
     margin-top: 120px;
+    width: 42%;
+}
+div.fld{
+    width: 100%;
+    height: 70px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+div.contact_us_inner input{
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    line-height: 70px;
+}
+div.contact_us_inner input::placeholder{
+    color: white;
+    font-size: 24px;
+}
+span.submitbtn{
+    margin: 0 auto;
+    display: block;
+    width: 60%;
+    height: 76px;
+    background-color: #1b1b1b;
+    border: none;
+}
+span.submitbtn>input{
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* footer */
+
+footer{
+    width: 100%;
+    height: 100px;
+    background-color: black;
+}
+div.footer_inner{
+    width: 30%;
+    height: 32px;
+    margin: 0 auto;
+}
+div.footer_inner>p{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 300;
+}
+div.footer_inner>p>span{
+    font-weight: bold;
+    margin-right: 8px;
 }
