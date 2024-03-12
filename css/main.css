@@ -18,6 +18,8 @@ a{
 }
 button{
     cursor: pointer;
+    background: none;
+    border: none;
 }
 .hidden{
     position: absolute;
@@ -52,9 +54,12 @@ div.header_wrap{
     box-sizing: border-box;
     border-bottom: solid 2px #fff;
     z-index: 999;
+    padding-left: 11%;
+    padding-right: 11%;
 }
 header{
-    width: 1400px;
+    /* width: 1400px; */
+    width: 100%;
     height: 100%;
     margin: 0px auto;
     box-sizing: border-box;
@@ -73,6 +78,9 @@ nav.mainmenu{
 ul.mainmenu_list{
     width: 100%;
     height: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
 }
 ul.mainmenu_list li a{
     font: normal 24px/150% 'Noto Sans KR';
@@ -86,6 +94,9 @@ ul.mainmenu_list li a{
 div.visual_wrap{
     width: 100%;
     height: 100vh;
+    position: relative;
+    left: 0px;
+    top: 0px;
 }
 ul.visual_list{
     width: 100%;
@@ -100,32 +111,34 @@ ul.visual_list li{
     top: 0px;
 }
 ul.visual_list li:nth-child(1){
-    background: url(/images/visual0.jpg) no-repeat center center;
+    background: url(/astroart/images/visual0.jpg) no-repeat center center;
     background-size: cover;
     z-index: 3;
 }
 ul.visual_list li:nth-child(2){
-    background: url(/images/visual1.jpg) no-repeat center center;
+    background: url(/astroart/images/visual1.jpg) no-repeat center center;
     background-size: cover;
     display: none;
 }
 ul.visual_list li:nth-child(3){
-    background: url(/images/visual2.jpg) no-repeat center center;
+    background: url(/astroart/images/visual2.jpg) no-repeat center center;
     background-size: cover;
     display: none;
 }
 ul.visual_list li:nth-child(4){
-    background: url(/images/visual3.jpg) no-repeat center center;
+    background: url(/astroart/images/visual3.jpg) no-repeat center center;
     background-size: cover;
     display: none;
 }
 ul.visual_list li:nth-child(5){
-    background: url(/images/visual4.jpg) no-repeat center center;
+    background: url(/astroart/images/visual4.jpg) no-repeat center center;
     background-size: cover;
     display: none;
 }
 section.visual{
-    width: 1400px;
+    /* width: 1400px; */
+    width: 100%;
+    padding-left: 11%;
     height: 100%;
     margin: 0px auto;
     min-width: 768px;
@@ -139,7 +152,7 @@ h2.visual_title{
     font: bold 86px 'Noto Sans KR';
     color: white;
     margin-bottom: 16px;
-
+    margin-left: 0%;
 }
 p.visual_text{
     font: normal 32px 'Noto Sans KR';
@@ -149,9 +162,9 @@ div.visual_btn_wrap{
     width: 150px;
     height: 10px;
     position: absolute;
-    left: 50%;
-    bottom: 5%;
-    margin-left: -75px;
+    left: 11%;
+    bottom: 20%;
+    margin-left: 75px;
     z-index: 555;
 }
 div.visual_btn_wrap button{
@@ -193,8 +206,7 @@ span.visual_redbar{
     box-sizing: border-box;
     border-radius: 20px;
 }
-p.visual_bar::before{
-    content: "01";
+span.visual_num{
     position: absolute;
     left: -40px;
     top: -14px;
@@ -214,25 +226,28 @@ p.visual_bar::after{
 section.story{
     width: 100%;
     height: 100vh;
-    background: url(/images/story_bg1.png) no-repeat center center;
+    background: url(/astroart/images/story_bg1.png) no-repeat center center;
     background-size: cover;
     box-sizing: border-box;
     padding-top: 185px;
 }
 section.story h2{
+    width: 50%;
+    margin-left: 11%;
+    box-sizing: border-box;
     font-size: 86px;
     color: white;
     font-weight: 700;
     text-align: left;
-    width: 1400px;
-    margin: 0px auto;
     margin-bottom: 90px;
-    padding-left: 16px;
     box-sizing: border-box;
 }
 section.story div{
-    width: 1400px;
-    margin: 0px auto;
+    /* width: 1400px; */
+    width: 100%;
+    padding-left: 11%;
+    padding-right: 11%;
+    box-sizing: border-box;
     font: bold 24px/150% 'Noto Sans KR';
     text-align: justify;
     margin-bottom: 32px;
@@ -241,28 +256,13 @@ section.story div{
 }
 
 @media screen and (max-width:1400px){
-    section.visual{
-        width: 100%;
-        padding-left: 16px;
+    section.story{
+        padding-top: 50px;
     }
-    header{
-        width: 100%;
-    }
-    section.story div, section.story h2{
-        width: 95%;
-        
-    }
-}
-
-@media screen and (max-width:986px) {
     nav.mainmenu{
         width: 75%;
     }
 }
-
-
-
-
 /* project */
 section.project{
     background-color: black;
