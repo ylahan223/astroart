@@ -65,19 +65,18 @@ header{
     height: 100%;
     margin: 0px auto;
     box-sizing: border-box;
-    padding: 40px 8px 0px 8px;
+    padding: 48px 8px 0px 8px;
     min-width: 768px;
 }
 h1.logo{
     width: 140px;
     float: left;
-    background: red;
+    
 }
 nav.mainmenu{
     width: 60%;
     height: 100%;
     float: right;
-    background: blue;
 }
 ul.mainmenu_list{
     width: 100%;
@@ -85,11 +84,13 @@ ul.mainmenu_list{
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
+    align-content: start;
 }
 ul.mainmenu_list li a{
     font: normal 24px/150% 'Noto Sans KR';
     text-align: center;
-    color: white;
+    font-weight: 200;
+    color: #ccc;
 }
 
 
@@ -234,6 +235,8 @@ section.story{
     background-size: cover;
     box-sizing: border-box;
     padding-top: 20vh;
+    border-top: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
 }
 section.story h2{
     width: 50%;
@@ -243,7 +246,7 @@ section.story h2{
     color: white;
     font-weight: 700;
     text-align: left;
-    margin-bottom: 90px;
+    margin-bottom: 120px;
     box-sizing: border-box;
 }
 section.story div{
@@ -260,9 +263,6 @@ section.story div{
 }
 
 @media screen and (max-width:1400px){
-    section.story{
-        padding-top: 50px;
-    }
     nav.mainmenu{
         width: 75%;
     }
