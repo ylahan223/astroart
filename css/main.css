@@ -69,11 +69,13 @@ header{
 h1.logo{
     width: 140px;
     float: left;
+    background: red;
 }
 nav.mainmenu{
     width: 60%;
     height: 100%;
     float: right;
+    background: blue;
 }
 ul.mainmenu_list{
     width: 100%;
