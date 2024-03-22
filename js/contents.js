@@ -1,9 +1,6 @@
 window.addEventListener('load',()=>{
-    // scroll()    
-    // slide()
-
-
-
+    scroll()    
+    
 })
 function scroll(){
     const contents=document.querySelectorAll('.contents')
@@ -29,39 +26,37 @@ function scroll(){
     function wheelWindow(e){
       if(e.wheelDelta<=-120 && isWheel==false){
           isWheel=true
-          clickIndex++
-         scrollSlide(clickIndex)
+            if(clickIndex<2){
+                clickIndex++
+                scrollSlide(clickIndex)
+            }else{
+                slide()
+            }
         }else if(e.wheelDelta>-120 && isWheel==false){
             isWheel=true
-            clickIndex--
-            scrollSlide(clickIndex)
+            if(clickIndex<3){
+                clickIndex--
+                scrollSlide(clickIndex)
+            }else{
+                slide()
+            }
         }
     }
 
 
 
-
-
-
-
-
 }
 function slide(){
-    const contentsSlide = document.querySelector('.project_list')
     const project = document.querySelector('.project')
+    const projectInner = document.querySelector('.project_inner')
+    const contentsSlide = document.querySelector('.project_list')
+    const contentsSlideLi = document.querySelectorAll('.project_list>li')
 
-
-    gsap.set(contentsSlide,{width:"250%"})
-
-    let endX=contentsSlide.offsetWidth-document.documentElement.clientWidth
-    // 가로스크롤이 끝나는 좌표구함 ( 가로스크롤 전체가로 크기 - 윈도우 스크롤 제외 안쪽크기  )
-    // 윈도우 reset 만들기
-
-    gsap.set(contentsSlide,{backgroundColor : 'red'})
+    let endX=contentsSlide.offsetWidth-document.documentElement.clientWidth/100*65
         
     gsap.to(contentsSlide, {x:-endX, duration:3, ease:'none', scrollTrigger:{
         trigger:project,
-        markers:true,
+        // markers:true,
         start:'0% 0%',
         end:`${endX} 0%`, 
         scrub:1,
