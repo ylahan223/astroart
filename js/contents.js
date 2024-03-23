@@ -26,7 +26,7 @@ function scroll(){
     function wheelWindow(e){
       if(e.wheelDelta<=-120 && isWheel==false){
           isWheel=true
-            if(clickIndex<2){
+            if(clickIndex<2 || clickIndex==4){
                 clickIndex++
                 scrollSlide(clickIndex)
             }else{

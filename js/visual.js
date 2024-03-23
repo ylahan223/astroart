@@ -3,7 +3,8 @@ window.addEventListener('load',()=>{
     const visualInner = document.querySelector('.visual_wrap')
     const visualLeftBtn = document.querySelector('.visual_left_btn')
     const visualRightBtn = document.querySelector('.visual_right_btn')
-    const visualText= document.querySelectorAll('.visual')
+    const visualTitle= document.querySelectorAll('.visual_title')
+    const visualText= document.querySelectorAll('.visual_text')
     const redbar=document.querySelector('.visual_redbar')
     const visualNum=document.querySelector('.visual_num')
 
@@ -11,12 +12,17 @@ window.addEventListener('load',()=>{
     let visualWidth=visualInner.offsetWidth;
     let visualLength = visualLi.length;
     let timer=null;
-    let isSlide=false;
+    // let isSlide=false;
 
     let currentIndex = 0;
     let nextIndex = currentIndex + 1;
 
+    textEffect()
 
+    gsap.set(redbar,{width:'0%'})
+    gsap.to(redbar,{width:'100%', ease:'power1.out'})
+    gsap.set(visualLi,{left:visualWidth})
+    gsap.set(visualLi[0],{left:0})
     
 
     window.addEventListener('resize',visualReset)
@@ -29,11 +35,7 @@ window.addEventListener('load',()=>{
     
     visualReset()
     autoPlay()
-
-    gsap.set(redbar,{width:'0%'})
-    gsap.to(redbar,{width:'100%',duration:4, ease:'power1.out'})
-    gsap.set(visualLi,{left:visualWidth})
-    gsap.set(visualLi[0],{left:0})
+    
 
     function visualReset(){
         visualWidth=visualInner.offsetWidth;
@@ -42,28 +44,24 @@ window.addEventListener('load',()=>{
         gsap.set(visualLi[currentIndex],{left:0,opacity:1})
     }
     function slideVisualNext(){
-        if(isSlide==false){
-            isSlide=true;
             nextIndex=currentIndex+1;
             if(nextIndex>=visualLength){
                 nextIndex=0;
             }
             gsap.set(redbar,{width:'0%'})
-            gsap.to(redbar,{width:'100%',duration:4,ease:'power1.out'})
+            gsap.to(redbar,{width:'100%',ease:'power1.out'})
             gsap.to(visualLi[currentIndex],{left:-visualWidth,duration:0.7,ease:'power1.out'})
             gsap.set(visualLi[nextIndex],{left:visualWidth,opacity:0})
             gsap.set(visualText[nextIndex],{y:50,opacity:0})
+            gsap.set(visualTitle[nextIndex],{y:50,opacity:0})
             gsap.to(visualLi[nextIndex],{left:0,opacity:1,duration:0.5,ease:'power1.out',onComplete:()=>{
-                gsap.to(visualText[nextIndex],{y:0,opacity:1})
-                isSlide=false;
+                textEffect()
             }})
             currentIndex=nextIndex;
             visualNum.innerHTML=`0${currentIndex+1}`
-        }
+        
     }
     function slideVisualPrev(){
-        if(isSlide==false){
-            isSlide=true;
             nextIndex=currentIndex-1;
             if(nextIndex<0){
                 nextIndex=visualLength-1;
@@ -72,14 +70,13 @@ window.addEventListener('load',()=>{
             gsap.to(redbar,{width:'100%',ease:'power1.out'})    
             gsap.to(visualLi[currentIndex],{left:visualWidth,duration:0.7,ease:'power1.out'})
             gsap.set(visualLi[nextIndex],{left:-visualWidth,opacity:0})
-            gsap.set(visualText[nextIndex],{y:50,opacity:0})
+            
             gsap.to(visualLi[nextIndex],{left:0,opacity:1,duration:0.5,ease:'power1.out',onComplete:()=>{
-                gsap.to(visualText[nextIndex],{y:0,opacity:1})
-                isSlide=false;
+                textEffect()
             }})
             currentIndex=nextIndex;
             visualNum.innerHTML=`0${currentIndex+1}`
-        }
+        
     }
     function autoPlay(){
         timer=setInterval(slideVisualNext,4000)
@@ -87,7 +84,12 @@ window.addEventListener('load',()=>{
     function stopAutoPlay(){
         clearInterval(timer)
     }
-
+    function textEffect(){
+        gsap.set(visualTitle[nextIndex],{y:50,opacity:0})
+        gsap.set(visualText[nextIndex],{y:50,opacity:0})
+        gsap.to(visualText[nextIndex],{y:0,opacity:1})
+        gsap.to(visualTitle[nextIndex],{y:0,opacity:1})
+    }
 
 
 
