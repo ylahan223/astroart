@@ -76,13 +76,14 @@ header {
     height: 100%;
     margin: 0px auto;
     box-sizing: border-box;
-    padding: 40px 8px 0px 8px;
+    padding: 48px 8px 0px 8px;
     min-width: 768px;
 }
 
 h1.logo {
     width: 140px;
     float: left;
+    
 }
 
 nav.mainmenu {
@@ -97,16 +98,15 @@ ul.mainmenu_list {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
+    align-content: start;
 }
 
 ul.mainmenu_list li a {
     font: normal 24px/150% 'Noto Sans KR';
     text-align: center;
-    color: white;
+    font-weight: 200;
+    color: #ccc;
 }
-
-
-
 /* 비주얼영역 */
 div.visual_wrap {
     width: 100%;
@@ -114,6 +114,7 @@ div.visual_wrap {
     position: relative;
     left: 0px;
     top: 0px;
+    overflow: hidden;
 }
 
 ul.visual_list {
@@ -139,25 +140,21 @@ ul.visual_list li:nth-child(1) {
 ul.visual_list li:nth-child(2) {
     background: url(/astroart/images/visual1.jpg) no-repeat center center;
     background-size: cover;
-    display: none;
 }
 
 ul.visual_list li:nth-child(3) {
     background: url(/astroart/images/visual2.jpg) no-repeat center center;
     background-size: cover;
-    display: none;
 }
 
 ul.visual_list li:nth-child(4) {
     background: url(/astroart/images/visual3.jpg) no-repeat center center;
     background-size: cover;
-    display: none;
 }
 
 ul.visual_list li:nth-child(5) {
     background: url(/astroart/images/visual4.jpg) no-repeat center center;
     background-size: cover;
-    display: none;
 }
 
 section.visual {
@@ -236,7 +233,7 @@ span.visual_redbar {
     display: block;
     width: 20%;
     height: 100%;
-    background-color: red;
+    background-color: #FF4E00;
     box-sizing: border-box;
     border-radius: 20px;
 }
@@ -266,6 +263,8 @@ section.story {
     background-size: cover;
     box-sizing: border-box;
     padding-top: 20vh;
+    border-top: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
 }
 
 section.story h2 {
@@ -276,7 +275,7 @@ section.story h2 {
     color: white;
     font-weight: 700;
     text-align: left;
-    margin-bottom: 90px;
+    margin-bottom: 120px;
     box-sizing: border-box;
 }
 
@@ -286,43 +285,43 @@ section.story div {
     padding-left: 11%;
     padding-right: 11%;
     box-sizing: border-box;
-    font: bold 24px/150% 'Noto Sans KR';
+    font: bold 1.5em/150% 'Noto Sans KR';
     text-align: justify;
     margin-bottom: 32px;
     min-width: 768px;
     color: white;
 }
 
-@media screen and (max-width:1400px) {
-    section.story {
-        padding-top: 50px;
-    }
-
-    nav.mainmenu {
+@media screen and (max-width:1400px){
+    nav.mainmenu{
         width: 75%;
+    }
+    section.story{
+        font-size: 13px;
     }
 }
 
 /* project */
 section.project {
     background-color: black;
-    width: 100%;
+    /* width: 100%; */
     height: 100vh;
     padding-top: 20vh;
-    box-sizing: border-box;
-
+    /* box-sizing: border-box; */
+    overflow: hidden;
+    /* width: 300%; */
 }
 
 div.project_inner {
     margin-left: 11%;
     margin-top: 10vh;
+    width: 4000px;
 }
 
 ul.project_list>li {
     position: relative;
     left: 0;
     top: 0;
-    margin-right: 2%;
 }
 
 p.project_num {
@@ -340,6 +339,9 @@ p.project_title {
     color: white;
     margin-top: 8px;
 
+}
+p.project_img img{
+    /* width: 100%; */
 }
 
 /* contact us */
