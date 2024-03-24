@@ -85,10 +85,10 @@ window.addEventListener('load',()=>{
         clearInterval(timer)
     }
     function textEffect(){
-        gsap.set(visualTitle[nextIndex],{y:50,opacity:0})
-        gsap.set(visualText[nextIndex],{y:50,opacity:0})
-        gsap.to(visualText[nextIndex],{y:0,opacity:1})
-        gsap.to(visualTitle[nextIndex],{y:0,opacity:1})
+        gsap.set(visualTitle[currentIndex],{y:50,opacity:0})
+        gsap.set(visualText[currentIndex],{y:50,opacity:0})
+        gsap.to(visualText[currentIndex],{y:0,opacity:1})
+        gsap.to(visualTitle[currentIndex],{y:0,opacity:1})
     }
 
 

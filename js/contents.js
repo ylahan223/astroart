@@ -4,6 +4,7 @@ window.addEventListener('load',()=>{
 })
 function scroll(){
     const contents=document.querySelectorAll('.contents')
+    const mouseimg=document.querySelector('.scroll-down-wrap')
 
     let clickIndex=0;
     let windowHeight=window.innerHeight;
@@ -26,40 +27,42 @@ function scroll(){
     function wheelWindow(e){
       if(e.wheelDelta<=-120 && isWheel==false){
           isWheel=true
-            if(clickIndex<2 || clickIndex==4){
                 clickIndex++
                 scrollSlide(clickIndex)
-            }else{
-                slide()
-            }
-        }else if(e.wheelDelta>-120 && isWheel==false){
+                // gsap.set(mouseimg, {display:'block'})
+            
+        }
+        if(e.wheelDelta>-120 && isWheel==false){
             isWheel=true
-            if(clickIndex<3){
                 clickIndex--
                 scrollSlide(clickIndex)
-            }else{
-                slide()
-            }
+
+        }
+        if(clickIndex==3){
+            gsap.set(mouseimg, {display:'none'})
+        }else{
+            gsap.set(mouseimg, {display:'block'})
         }
     }
 
 
 
 }
-function slide(){
-    const project = document.querySelector('.project')
-    const projectInner = document.querySelector('.project_inner')
-    const contentsSlide = document.querySelector('.project_list')
-    const contentsSlideLi = document.querySelectorAll('.project_list>li')
+// function slide(){
+//     const project = document.querySelector('.project')
+//     const projectInner = document.querySelector('.project_inner')
+//     const contentsSlide = document.querySelector('.project_list')
+//     const contentsSlideLi = document.querySelectorAll('.project_list>li')
 
-    let endX=contentsSlide.offsetWidth-document.documentElement.clientWidth/100*65
+//     let endX=contentsSlide.offsetWidth-document.documentElement.clientWidth/100*65
         
-    gsap.to(contentsSlide, {x:-endX, duration:3, ease:'none', scrollTrigger:{
-        trigger:project,
-        // markers:true,
-        start:'0% 0%',
-        end:`${endX} 0%`, 
-        scrub:1,
-        pin:true, // 부모요소 스크롤 고정 
-    }})
-}
+//     gsap.to(contentsSlide, {x:-endX, duration:3, ease:'none', scrollTrigger:{
+//         trigger:project,
+//         // markers:true,
+//         start:'0% 0%',
+//         end:`${endX} 0%`, 
+//         scrub:1,
+//         pin:true, // 부모요소 스크롤 고정 
+//     }})
+// }
+
