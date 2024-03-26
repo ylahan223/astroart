@@ -14,7 +14,7 @@ html {
 body {
     font-family: 'Noto sans KR';
     color: #111;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 a {
@@ -121,6 +121,7 @@ ul.visual_list {
     width: 100%;
     height: 100%;
     position: relative;
+    background: black;
 }
 
 ul.visual_list li {
@@ -132,28 +133,28 @@ ul.visual_list li {
 }
 
 ul.visual_list li:nth-child(1) {
-    background: url(/astroart/images/visual0.jpg) no-repeat center center;
+    background: url(/astroart/images/visual0.jpg) no-repeat center center ;
     background-size: cover;
     z-index: 3;
 }
 
 ul.visual_list li:nth-child(2) {
-    background: url(/astroart/images/visual1.jpg) no-repeat center center;
+    background: url(/astroart/images/visual1.jpg) no-repeat center center ;
     background-size: cover;
 }
 
 ul.visual_list li:nth-child(3) {
-    background: url(/astroart/images/visual2.jpg) no-repeat center center;
+    background: url(/astroart/images/visual2.jpg) no-repeat center center ;
     background-size: cover;
 }
 
 ul.visual_list li:nth-child(4) {
-    background: url(/astroart/images/visual3.jpg) no-repeat center center;
+    background: url(/astroart/images/visual3.jpg) no-repeat center center ;
     background-size: cover;
 }
 
 ul.visual_list li:nth-child(5) {
-    background: url(/astroart/images/visual4.jpg) no-repeat center center;
+    background: url(/astroart/images/visual4.jpg) no-repeat center center ;
     background-size: cover;
 }
 

@@ -12,12 +12,9 @@ window.addEventListener('load',()=>{
     let visualWidth=visualInner.offsetWidth;
     let visualLength = visualLi.length;
     let timer=null;
-    // let isSlide=false;
-
     let currentIndex = 0;
     let nextIndex = currentIndex + 1;
 
-    textEffect()
 
     gsap.set(redbar,{width:'0%'})
     gsap.to(redbar,{width:'100%', ease:'power1.out'})
@@ -33,6 +30,7 @@ window.addEventListener('load',()=>{
     visualLeftBtn.addEventListener('mouseenter',stopAutoPlay)
     visualLeftBtn.addEventListener('mouseleave',autoPlay)
     
+    textEffect()
     visualReset()
     autoPlay()
     
@@ -49,11 +47,14 @@ window.addEventListener('load',()=>{
                 nextIndex=0;
             }
             gsap.set(redbar,{width:'0%'})
+            gsap.killTweensOf(redbar)
             gsap.to(redbar,{width:'100%',ease:'power1.out'})
-            gsap.to(visualLi[currentIndex],{left:-visualWidth,duration:0.7,ease:'power1.out'})
+            gsap.killTweensOf(visualLi[currentIndex])
+            gsap.to(visualLi[currentIndex],{left:-visualWidth,duration:0.7,opacity:0, ease:'power1.out'})
             gsap.set(visualLi[nextIndex],{left:visualWidth,opacity:0})
-            gsap.set(visualText[nextIndex],{y:50,opacity:0})
             gsap.set(visualTitle[nextIndex],{y:50,opacity:0})
+            gsap.set(visualText[nextIndex],{y:50,opacity:0})
+            gsap.killTweensOf(visualLi[nextIndex])
             gsap.to(visualLi[nextIndex],{left:0,opacity:1,duration:0.5,ease:'power1.out',onComplete:()=>{
                 textEffect()
             }})
@@ -67,10 +68,14 @@ window.addEventListener('load',()=>{
                 nextIndex=visualLength-1;
             }
             gsap.set(redbar,{width:'0%'})
-            gsap.to(redbar,{width:'100%',ease:'power1.out'})    
-            gsap.to(visualLi[currentIndex],{left:visualWidth,duration:0.7,ease:'power1.out'})
+            gsap.killTweensOf(redbar)
+            gsap.to(redbar,{width:'100%',ease:'power1.out'})  
+            gsap.killTweensOf(visualLi[currentIndex])  
+            gsap.to(visualLi[currentIndex],{left:visualWidth,duration:0.7,opacity:0,ease:'power1.out'})
             gsap.set(visualLi[nextIndex],{left:-visualWidth,opacity:0})
-            
+            gsap.set(visualTitle[nextIndex],{y:50,opacity:0})
+            gsap.set(visualText[nextIndex],{y:50,opacity:0})
+            gsap.killTweensOf(visualLi[nextIndex])
             gsap.to(visualLi[nextIndex],{left:0,opacity:1,duration:0.5,ease:'power1.out',onComplete:()=>{
                 textEffect()
             }})
